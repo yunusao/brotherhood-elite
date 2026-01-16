@@ -7,8 +7,20 @@ import { Button } from "@/components/Button";
 export default function HomePage() {
   return (
     <>
-      {/* ================= MOBILE HERO (Logo) ================= */}
-      <section className="relative block md:hidden bg-[#0B0B0B] overflow-hidden">
+      {/* ================= MOBILE HERO (IMAGE FULL COVER) ================= */}
+      <section className="relative block md:hidden h-[85vh] min-h-[520px] overflow-hidden">
+        {/* Background Image */}
+        <Image
+          src="/heros.jpg"
+          alt="Brotherhood Elite team"
+          fill
+          priority
+          className="object-cover"
+        />
+
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/60" />
+
         {/* subtle glow */}
         <motion.div
           aria-hidden
@@ -21,97 +33,86 @@ export default function HomePage() {
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        <div className="container-page relative py-20 text-center">
-          {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.55, ease: "easeOut" }}
-            className="mx-auto mb-6 w-44"
-          >
-            <Image
-              src="/logo.jpg"
-              alt="Brotherhood Elite"
-              width={220}
-              height={220}
-              priority
-            />
-          </motion.div>
+        <div className="container-page relative z-10 flex h-full items-center text-center">
+          <div className="w-full">
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.1, ease: "easeOut" }}
+              className="text-3xl font-extrabold tracking-tight"
+            >
+              Built on <span className="text-[#47A614]">Brotherhood</span>.
+              <br />
+              Driven by <span className="text-[#47A614]">Belief</span>.
+            </motion.h1>
 
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.1, ease: "easeOut" }}
-            className="text-3xl font-extrabold tracking-tight"
-          >
-            Built on <span className="text-[#47A614]">Brotherhood</span>.
-            <br />
-            Driven by <span className="text-[#47A614]">Excellence</span>.
-          </motion.h1>
+            {/* Subtext */}
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.2, ease: "easeOut" }}
+              className="mx-auto mt-4 max-w-sm text-[#E0E0E0]"
+            >
+              Competitive basketball development in the GTA and Ottawa — elite
+              training, teams, and a culture of accountability.
+            </motion.p>
 
-          {/* Subtext */}
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.2, ease: "easeOut" }}
-            className="mx-auto mt-4 max-w-sm text-[#BDBDBD]"
-          >
-            Competitive basketball development in the GTA and Ottawa — elite
-            training, teams, and a culture of accountability.
-          </motion.p>
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.3, ease: "easeOut" }}
+              className="mt-7 flex flex-col gap-3"
+            >
+              <Button href="/tryouts">Tryouts / Register</Button>
+              <Button href="/programs" variant="secondary">
+                View Programs
+              </Button>
+            </motion.div>
 
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.3, ease: "easeOut" }}
-            className="mt-7 flex flex-col gap-3"
-          >
-            <Button href="/tryouts">Tryouts / Register</Button>
-            <Button href="/programs" variant="secondary">
-              View Programs
-            </Button>
-          </motion.div>
-
-          {/* Mini cards */}
-          <motion.div
-            className="mt-10 grid grid-cols-1 gap-3"
-            initial="hidden"
-            animate="show"
-            variants={{
-              hidden: {},
-              show: { transition: { staggerChildren: 0.08, delayChildren: 0.25 } },
-            }}
-          >
-            {[
-              ["Development", "Skill + IQ"],
-              ["Culture", "Discipline"],
-              ["Pathways", "Exposure"],
-            ].map(([t, d]) => (
-              <motion.div
-                key={t}
-                className="rounded-2xl border border-[#2A2A2A] bg-[#121212] p-4 text-left"
-                variants={{
-                  hidden: { opacity: 0, y: 10 },
-                  show: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.45, ease: "easeOut" }}
-              >
-                <div className="font-bold">{t}</div>
-                <div className="text-sm text-[#BDBDBD] mt-1">{d}</div>
-              </motion.div>
-            ))}
-          </motion.div>
+            {/* Mini cards */}
+            <motion.div
+              className="mt-10 grid grid-cols-1 gap-3"
+              initial="hidden"
+              animate="show"
+              variants={{
+                hidden: {},
+                show: {
+                  transition: { staggerChildren: 0.08, delayChildren: 0.25 },
+                },
+              }}
+            >
+              {[
+                ["Development", "Skill + IQ"],
+                ["Culture", "Discipline"],
+                ["Pathways", "Exposure"],
+              ].map(([t, d]) => (
+                <motion.div
+                  key={t}
+                  className="rounded-2xl border border-white/15 bg-black/35 p-4 text-left backdrop-blur"
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    show: { opacity: 1, y: 0 },
+                  }}
+                  transition={{ duration: 0.45, ease: "easeOut" }}
+                >
+                  <div className="font-bold">{t}</div>
+                  <div className="text-sm text-[#BDBDBD] mt-1">{d}</div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
 
         {/* fade bottom */}
-        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0B0B0B] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0B0B0B] to-transparent" />
       </section>
 
-      {/* ================= DESKTOP HERO (Video) ================= */}
+      {/* ================= DESKTOP HERO (IMAGE – TEMP) ================= */}
       <section className="relative hidden md:block h-[90vh] min-h-[560px] overflow-hidden">
-        {/* Video (place your file at /public/hero.mp4) */}
+        {/*
+        ================= VIDEO HERO (COMMENTED OUT FOR NOW) =================
         <video
           className="absolute inset-0 h-full w-full object-cover"
           src="/hero.mp4"
@@ -120,7 +121,17 @@ export default function HomePage() {
           loop
           playsInline
           preload="metadata"
-          // Optional: poster="/hero-poster.jpg"
+        />
+        =====================================================================
+        */}
+
+        {/* Hero Image */}
+        <Image
+          src="/heros.jpg"
+          alt="Brotherhood Elite team"
+          fill
+          priority
+          className="object-cover"
         />
 
         {/* Dark overlay for readability */}
@@ -153,7 +164,7 @@ export default function HomePage() {
               <h1 className="mt-4 text-5xl md:text-6xl font-extrabold tracking-tight">
                 Built on <span className="text-[#47A614]">Brotherhood</span>.
                 <br />
-                Driven by <span className="text-[#47A614]">Excellence</span>.
+                Driven by <span className="text-[#47A614]">Belief</span>.
               </h1>
 
               <p className="mt-4 text-lg text-[#E0E0E0]">
@@ -200,7 +211,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Fade at bottom so it blends into next section */}
+        {/* Fade at bottom */}
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0B0B0B] to-transparent" />
       </section>
 
@@ -240,7 +251,7 @@ export default function HomePage() {
                 href: "/programs",
               },
               {
-                title: "Skill Development",
+                title: "B.E. Academy",
                 desc: "Shooting, handles, footwork, defense, and basketball IQ.",
                 href: "/programs",
               },

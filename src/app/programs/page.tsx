@@ -16,16 +16,16 @@ const stagger: Variants = {
 
 const programs = [
   {
-    title: "Skill Development Training",
-    desc: "Structured sessions focused on fundamentals, basketball IQ, and game-ready habits through high-rep training.",
-    bullets: ["Shooting + finishing", "Ball-handling + footwork", "Defense + competitive habits", "Decision-making + spacing"],
-    href: "/contact",
-  },
-  {
-    title: "Competitive Rep Teams",
+    title: "Competitive Rep & AAU Teams",
     desc: "Tryout-based rosters competing in leagues and tournaments with disciplined coaching and player development.",
     bullets: ["Rep programming launched in 2023", "Season planning + tournaments", "Role clarity + accountability", "Film + performance feedback"],
     href: "/tryouts",
+  },
+  {
+    title: "Brotherhood Elite Academy",
+    desc: "Structured sessions focused on fundamentals, basketball IQ, and game-ready habits through high-rep training.",
+    bullets: ["Shooting + finishing", "Ball-handling + footwork", "Defense + competitive habits", "Decision-making + spacing"],
+    href: "/contact",
   },
   {
     title: "Individual & Small Group Training",
@@ -121,7 +121,36 @@ export default function ProgramsPage() {
           ))}
         </motion.div>
 
-        
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.55 }}
+          className="mt-12 rounded-2xl border border-[#2A2A2A] bg-[#121212] p-6 md:p-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between"
+        >
+          <div>
+            <div className="text-lg md:text-xl font-extrabold">Not sure what fits best?</div>
+            <div className="mt-1 text-sm text-[#BDBDBD]">
+              Contact us and we’ll recommend a training plan based on skill level and goals.
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Link
+              href="/tryouts"
+              className="inline-flex items-center justify-center rounded-xl border border-[#47A614] bg-[#47A614] px-5 py-3 text-sm font-semibold text-black transition hover:bg-[#63C51F] hover:border-[#63C51F]"
+            >
+              Tryouts / Register
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-xl border border-[#2A2A2A] bg-transparent px-5 py-3 text-sm font-semibold text-white transition hover:border-white/60"
+            >
+              Contact Us
+            </Link>
+          </div>
+        </motion.div>
       </div>
     </div>
   );

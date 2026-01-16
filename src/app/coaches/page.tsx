@@ -26,7 +26,7 @@ const coaches: Coach[] = [
   },
   {
   name: "Louis Moore",
-  title: "Program Director • Senior Coach",
+  title: "Program Director • Head Coach",
   teams: ["Program Oversight","U17(Mississauga)"],
   bio: [
     "Louis Moore is a transformational leader and energetic coach with over 20 years of playing experience and more than a decade of coaching.",
