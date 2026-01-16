@@ -8,44 +8,43 @@ type Coach = {
   name: string;
   title: string;
   teams: string[];
-  bio: string;
-  focus: string[];
+  bio: string[] | string;
   image: string;
 };
 
 const coaches: Coach[] = [
   {
-    name: "Coach Malik Johnson",
-    title: "Head Coach • Program Director",
-    teams: ["U17 (GTA)", "U18 (GTA)"],
-    bio: "Coach Malik brings a development-first approach built on accountability, defensive identity, and high standards. Known for building competitive teams and helping athletes grow their confidence and basketball IQ.",
-    focus: ["Defense & competitive habits", "Basketball IQ", "Leadership & culture"],
-    image: "/logo.jpg",
+    name: "Musa Ahluwalia",
+    title: "Founder • Head Coach",
+    teams: ["Program Coordinator", "U16(Mississauga)", "U19(Mississauga)"],
+    bio: [
+      "Musa Ahluwalia brings over a decade of experience in playing and coaching basketball at multiple levels. His basketball journey began at age 8 and led to prep school scholarships and university interest across the US and Canada.",
+      "At 18, Musa made the decision to step away from playing to focus on creating opportunities for youth. He founded Brotherhood Elite with the vision of providing elite training, mentorship, and pathways to higher levels of basketball.",
+      "Having trained under high-level coaches and trainers—including Jacques Lukusa, formerly ranked the #2 guard in Canada—Musa gained first-hand experience in elite player development. Since 2019, he has coached hundreds of athletes across Ontario, many of whom have advanced to top US prep schools such as St. Benedict’s Prep (NJ), Wilson Academy (GA), and St. Louis Christian Academy (MO).",
+    ],
+    image: "/musa1.jpg",
   },
   {
-    name: "Coach Samira Ali",
-    title: "Head Coach • Ottawa Hub",
-    teams: ["U15 (Ottawa)", "U16 (Ottawa)"],
-    bio: "Coach Samira emphasizes fundamentals under pressure—footwork, spacing, and decision-making. Her sessions are structured, high-rep, and focused on translating training into game performance.",
-    focus: ["Skill development structure", "Footwork & finishing", "Game reads & spacing"],
-    image: "/logo.jpg",
-  },
-  {
-    name: "Coach Daniel Chen",
-    title: "Assistant Coach • Player Development",
-    teams: ["U13 (GTA)", "U14 (GTA)"],
-    bio: "Coach Daniel specializes in early-stage athlete development: ball-handling, shooting form, and defensive stance. He’s detail-obsessed and builds strong foundations that scale as players move up.",
-    focus: ["Shooting mechanics", "Ball-handling & control", "Defensive fundamentals"],
-    image: "/logo.jpg",
-  },
-  {
-    name: "Coach Ayo Mensah",
-    title: "Strength & Conditioning Coach",
-    teams: ["All Teams (GTA & Ottawa)"],
-    bio: "Coach Ayo focuses on athletic performance: speed, agility, strength, and durability. His goal is to keep athletes healthy, explosive, and prepared for the physical demands of competitive basketball.",
-    focus: ["Speed & agility", "Strength foundations", "Injury prevention"],
-    image: "/logo.jpg",
-  },
+  name: "Louis Moore",
+  title: "Program Director • Senior Coach",
+  teams: ["Program Oversight", "U16(Mississauga)","U17(Mississauga)" ,"U19(Mississauga)"],
+  bio: [
+    "Louis Moore is a transformational leader and energetic coach with over 20 years of playing experience and more than a decade of coaching.",
+    "A former 3-time All-Star and All-Canadian, Louis competed at the collegiate and professional levels before returning home to dedicate himself to youth development. His coaching journey began with family and expanded to mentoring athletes who have gone on to compete at NCAA Division I, Carleton University, and beyond.",
+    "Known for his passion, basketball knowledge, and commitment to player growth, Louis continues to impact the next generation both on and off the court.",
+  ],
+  image: "/louis.jpg",
+},
+{
+  name: "Alham Khatol",
+  title: "Head Coach • Scarborough",
+  teams: ["U14(Scarborough)", "U16(Scarborough)"],
+  bio: [
+    "Alham Khatol, one of our lead assistant coaches in the GTA, brings an extensive coaching experience to our club. With a background in high-level competition during his high school career and over 5 years of training and coaching youth basketball players through Sunnah Spot and other community programs, Alham is dedicated to nurturing talent and fostering a love for the game.",
+    "His passion and love for the game allow him to continue to enjoy playing at a high level today, which also translates to his coaching. His expertise and passion for basketball make him an invaluable asset to our coaching staff, ensuring that players receive top-tier guidance and support as they strive for excellence on the court.",
+  ],
+  image: "/Alham.jpg",
+},
 ];
 
 const fadeUp: Variants = {
@@ -85,7 +84,7 @@ export default function CoachesPage() {
           </div>
 
           <h1 className="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight">
-            Meet the <span className="text-[#47A614]">Coaches</span>
+            Meet the <span className="text-[#47A614]">Leadership & Coaches</span>
           </h1>
 
           <p className="mt-2 max-w-2xl text-[#BDBDBD]">
@@ -109,11 +108,7 @@ export default function CoachesPage() {
                 variants={fadeUp}
                 custom={idx}
               >
-                <div
-                  className={`grid gap-0 md:grid-cols-12 ${
-                    reverse ? "" : ""
-                  }`}
-                >
+                <div className="grid gap-0 md:grid-cols-12">
                   {/* Image panel */}
                   <div className={`md:col-span-5 ${reverse ? "md:order-2" : "md:order-1"}`}>
                     <div className="relative h-64 md:h-full min-h-[280px] bg-[#0B0B0B]">
@@ -125,7 +120,6 @@ export default function CoachesPage() {
                         priority={idx < 2}
                       />
 
-                      {/* corner badge */}
                       <div className="absolute left-4 top-4 rounded-full border border-[#2A2A2A] bg-[#0B0B0B]/70 px-3 py-1 text-xs text-[#BDBDBD] backdrop-blur">
                         Coach Profile
                       </div>
@@ -151,23 +145,15 @@ export default function CoachesPage() {
                         ))}
                       </div>
 
-                      <p className="mt-4 text-[#BDBDBD] leading-relaxed">
-                        {c.bio}
-                      </p>
-
-                      <div className="mt-5">
-                        <div className="text-sm font-semibold text-white">
-                          Development Focus
-                        </div>
-                        <ul className="mt-2 grid gap-2 md:grid-cols-2 text-sm text-[#BDBDBD]">
-                          {c.focus.map((f) => (
-                            <li key={f} className="flex items-start gap-2">
-                              <span className="mt-1 inline-block h-2 w-2 rounded-full bg-[#47A614]" />
-                              <span>{f}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                      {Array.isArray(c.bio) ? (
+                        c.bio.map((p, i) => (
+                          <p key={i} className="mt-4 text-[#BDBDBD] leading-relaxed">
+                            {p}
+                          </p>
+                        ))
+                      ) : (
+                        <p className="mt-4 text-[#BDBDBD] leading-relaxed">{c.bio}</p>
+                      )}
 
                       <div className="mt-6 border-t border-[#2A2A2A] pt-4 text-xs text-[#BDBDBD]">
                         Want to train with this staff? Check Tryouts and Training schedules.

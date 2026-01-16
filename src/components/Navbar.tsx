@@ -12,6 +12,7 @@ const nav = [
   { href: "/programs", label: "Programs" },
   { href: "/tryouts", label: "Tryouts" },
   { href: "/coaches", label: "Coaches" },
+  { href: "/success", label: "Success & Milestones" },
   { href: "/media", label: "Media" },
   { href: "/contact", label: "Contact" },
 ];
