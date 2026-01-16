@@ -22,12 +22,12 @@ const coaches: Coach[] = [
       "At 18, Musa made the decision to step away from playing to focus on creating opportunities for youth. He founded Brotherhood Elite with the vision of providing elite training, mentorship, and pathways to higher levels of basketball.",
       "Having trained under high-level coaches and trainers—including Jacques Lukusa, formerly ranked the #2 guard in Canada—Musa gained first-hand experience in elite player development. Since 2019, he has coached hundreds of athletes across Ontario, many of whom have advanced to top US prep schools such as St. Benedict’s Prep (NJ), Wilson Academy (GA), and St. Louis Christian Academy (MO).",
     ],
-    image: "/musa1.jpg",
+    image: "/musaa.jpeg",
   },
   {
   name: "Louis Moore",
   title: "Program Director • Senior Coach",
-  teams: ["Program Oversight", "U16(Mississauga)","U17(Mississauga)" ,"U19(Mississauga)"],
+  teams: ["Program Oversight","U17(Mississauga)"],
   bio: [
     "Louis Moore is a transformational leader and energetic coach with over 20 years of playing experience and more than a decade of coaching.",
     "A former 3-time All-Star and All-Canadian, Louis competed at the collegiate and professional levels before returning home to dedicate himself to youth development. His coaching journey began with family and expanded to mentoring athletes who have gone on to compete at NCAA Division I, Carleton University, and beyond.",

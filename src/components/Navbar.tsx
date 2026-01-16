@@ -10,7 +10,7 @@ import { Button } from "./Button";
 const nav = [
   { href: "/about", label: "About" },
   { href: "/programs", label: "Programs" },
-  { href: "/tryouts", label: "Tryouts" },
+  { href: "/tryouts", label: "Registration" },
   { href: "/coaches", label: "Coaches" },
   { href: "/success", label: "Success & Milestones" },
   { href: "/media", label: "Media" },
