@@ -84,13 +84,13 @@ export default function HomePage() {
               }}
             >
               {[
-                ["Development", "Skill + IQ"],
-                ["Culture", "Discipline"],
-                ["Pathways", "Exposure"],
+                ["Character"],
+                ["Academics"],
+                ["Basketball"],
               ].map(([t, d]) => (
                 <motion.div
                   key={t}
-                  className="rounded-2xl border border-white/15 bg-black/35 p-4 text-left backdrop-blur"
+                  className="rounded-2xl border border-white/15 bg-black/35 p-4 backdrop-blur flex flex-col items-center justify-center text-center min-h-[90px]"
                   variants={{
                     hidden: { opacity: 0, y: 10 },
                     show: { opacity: 1, y: 0 },
@@ -189,13 +189,13 @@ export default function HomePage() {
                 }}
               >
                 {[
-                  ["Development", "Skill + IQ"],
-                  ["Culture", "Discipline"],
-                  ["Pathways", "Exposure"],
+                  ["Character"],
+                  ["Academics"],
+                  ["Basketball"],
                 ].map(([t, d]) => (
                   <motion.div
                     key={t}
-                    className="rounded-2xl border border-white/15 bg-black/35 p-4 backdrop-blur"
+                    className="rounded-2xl border border-white/15 bg-black/35 p-4 backdrop-blur flex flex-col items-center justify-center text-center min-h-[90px]"
                     variants={{
                       hidden: { opacity: 0, y: 12 },
                       show: { opacity: 1, y: 0 },

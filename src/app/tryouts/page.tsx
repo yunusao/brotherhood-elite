@@ -12,7 +12,7 @@ export default function TryoutsPage() {
         <h1 className="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight">
           Tryouts & <span className="text-[#47A614]">Registration</span>
         </h1>
-
+        
         <p className="mt-3 text-[#BDBDBD]">
           Complete the registration form below to be considered for upcoming
           Brotherhood Elite tryouts. A member of our staff will follow up with
@@ -20,27 +20,37 @@ export default function TryoutsPage() {
         </p>
       </div>
 
-      {/* Form container */}
-      <div className="rounded-2xl border border-[#2A2A2A] bg-[#121212] p-2 md:p-4">
-        <div className="relative w-full overflow-hidden rounded-xl">
-          <iframe
-            src="https://form.jotform.com/260146768104254"
-            title="Brotherhood Elite Tryout Registration"
-            className="w-full h-[900px] border-0"
-            loading="lazy"
-            allow="geolocation; microphone; camera"
-          />
-        </div>
-      </div>
+      {/* Video + Registration */}
+<div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-start">
+  
+  {/* Tryout Promo Video */}
+  <div className="flex justify-center lg:justify-start">
+    <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-[#2A2A2A] bg-black aspect-[9/16]">
+      <video
+        src="/videos/Tryout Promo Summer 2026.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="h-full w-full object-cover"
+      />
+    </div>
+  </div>
 
-      {/* Footer note */}
-      <div className="mt-6 max-w-2xl text-sm text-[#BDBDBD]">
-        Having trouble with the form or have questions? Visit our{" "}
-        <a href="/contact" className="text-[#47A614] hover:underline">
-          Contact page
-        </a>{" "}
-        and we’ll help you out.
-      </div>
+  {/* Form container */}
+  <div className="rounded-2xl border border-[#2A2A2A] bg-[#121212] p-2 md:p-4">
+    <div className="relative w-full overflow-hidden rounded-xl">
+      <iframe
+        src="https://form.jotform.com/260146768104254"
+        title="Brotherhood Elite Tryout Registration"
+        className="w-full h-[900px] border-0"
+        loading="lazy"
+        allow="geolocation; microphone; camera"
+      />
+    </div>
+  </div>
+
+</div>
     </div>
   );
 }

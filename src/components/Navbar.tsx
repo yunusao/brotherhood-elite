@@ -14,7 +14,7 @@ const nav = [
   { href: "/coaches", label: "Coaches" },
   { href: "/success", label: "Success & Milestones" },
   { href: "/media", label: "Media" },
-  { href: "/contact", label: "Contact" },
+  { href: "/stats", label: "Statistics" },
 ];
 
 export function Navbar() {

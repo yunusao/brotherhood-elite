@@ -14,9 +14,9 @@ export default function MediaPage() {
   const clips: Clip[] = useMemo(
     () => [
       { id: "c1", src: "/videos/Game Recap BHE.mp4", title: "Ottawa U17", tag: "Highlights" },
-      { id: "c2", src: "/videos/Reel 2 (BHE).mp4", title: "Mississauga U19", tag: "Training" },
-      { id: "c3", src: "/videos/Game Recap (Sunday).mp4", title: "Mississauga U17", tag: "Defense" },
-      { id: "c4", src: "/videos/Game Recap.mp4", title: "U17 Derby", tag: "Offense" },
+      { id: "c2", src: "/videos/Reel 2 (BHE).mp4", title: "Mississauga U19", tag: "Highlights" },
+      { id: "c3", src: "/videos/Game Recap (Sunday).mp4", title: "Mississauga U17", tag: "Highlights" },
+      { id: "c4", src: "/videos/Game Recap.mp4", title: "U17 Derby", tag: "Game Recap" },
       { id: "c5", src: "/videos/Practice footage 1.mp4", title: "Culture check", tag: "Brotherhood" },
       { id: "c6", src: "/videos/clip6.mp4", title: "Game winner", tag: "Clutch" },
       { id: "c7", src: "/videos/clip7.mp4", title: "Footwork + finish", tag: "Skills" },
