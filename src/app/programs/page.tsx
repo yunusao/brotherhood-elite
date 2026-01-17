@@ -16,7 +16,7 @@ const stagger: Variants = {
 
 const programs = [
   {
-    title: "Competitive Rep & AAU Teams",
+    title: "Competitive Rep/AAU Teams",
     desc: "Tryout-based rosters competing in leagues and tournaments with disciplined coaching and player development.",
     bullets: ["Rep programming launched in 2023", "Season planning + tournaments", "Role clarity + accountability", "Film + performance feedback"],
     href: "/tryouts",

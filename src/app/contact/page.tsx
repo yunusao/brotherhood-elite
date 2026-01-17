@@ -7,17 +7,38 @@ export default function ContactPage() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setStatus("sending");
+  e.preventDefault();
+  setStatus("sending");
 
-    // Frontend-only placeholder:
-    // Later we’ll connect this to: EmailJS / Formspree / Resend API / Supabase
-    await new Promise((r) => setTimeout(r, 700));
+  const form = e.currentTarget;
+  const fd = new FormData(form);
 
-    setStatus("sent");
-    (e.target as HTMLFormElement).reset();
-    setTimeout(() => setStatus("idle"), 2000);
+  const payload = {
+    name: String(fd.get("name") ?? ""),
+    email: String(fd.get("email") ?? ""),
+    phone: String(fd.get("phone") ?? ""),
+    topic: String(fd.get("topic") ?? ""),
+    message: String(fd.get("message") ?? ""),
+  };
+
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    // optional: show error state
+    setStatus("idle");
+    alert("Failed to send. Please try again.");
+    return;
   }
+
+  setStatus("sent");
+  form.reset();
+  setTimeout(() => setStatus("idle"), 2000);
+}
+
 
   return (
     <div className="relative overflow-hidden">

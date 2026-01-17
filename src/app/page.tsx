@@ -72,7 +72,7 @@ export default function HomePage() {
             </motion.div>
 
             {/* Mini cards */}
-            <motion.div
+            {/* <motion.div
               className="mt-10 grid grid-cols-1 gap-3"
               initial="hidden"
               animate="show"
@@ -101,7 +101,7 @@ export default function HomePage() {
                   <div className="text-sm text-[#BDBDBD] mt-1">{d}</div>
                 </motion.div>
               ))}
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
 
@@ -171,14 +171,25 @@ export default function HomePage() {
                 Elite training, competitive teams, and a culture of accountability — on and off the court.
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Button href="/tryouts">Tryouts / Register</Button>
-                <Button href="/programs" variant="secondary">
+              <div className="mt-6 flex flex-wrap gap-4">
+                <Button
+                  href="/tryouts"
+                  className="px-20 py-4 text-lg font-semibold"
+                >
+                  Tryouts / Register
+                </Button>
+
+                <Button
+                  href="/programs"
+                  variant="secondary"
+                  className="px-20 py-4 text-lg font-semibold"
+                >
                   View Programs
                 </Button>
               </div>
 
-              {/* Quick stats */}
+
+              {/* Quick stats
               <motion.div
                 className="mt-10 grid grid-cols-3 gap-3 sm:gap-4"
                 initial="hidden"
@@ -206,7 +217,7 @@ export default function HomePage() {
                     <div className="text-sm text-[#BDBDBD] mt-1">{d}</div>
                   </motion.div>
                 ))}
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </div>
         </div>
@@ -246,7 +257,7 @@ export default function HomePage() {
           <div className="grid gap-4 md:grid-cols-3">
             {[
               {
-                title: "Competitive Teams",
+                title: "Competitive Rep/AAU Teams",
                 desc: "Tryout-based rosters, season planning, and tournament play.",
                 href: "/programs",
               },
@@ -256,7 +267,7 @@ export default function HomePage() {
                 href: "/programs",
               },
               {
-                title: "Camps & Clinics",
+                title: "Individual & Small GroupTraining",
                 desc: "High reps, high intensity, and measurable improvement.",
                 href: "/programs",
               },
