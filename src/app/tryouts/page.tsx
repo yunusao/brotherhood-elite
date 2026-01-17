@@ -22,20 +22,6 @@ export default function TryoutsPage() {
 
       {/* Video + Registration */}
 <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-start">
-  
-  {/* Tryout Promo Video */}
-  <div className="flex justify-center lg:justify-start">
-    <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-[#2A2A2A] bg-black aspect-[9/16]">
-      <video
-        src="/videos/Tryout Promo Summer 2026.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="h-full w-full object-cover"
-      />
-    </div>
-  </div>
 
   {/* Form container */}
   <div className="rounded-2xl border border-[#2A2A2A] bg-[#121212] p-2 md:p-4">
@@ -49,7 +35,19 @@ export default function TryoutsPage() {
       />
     </div>
   </div>
-
+  {/* Tryout Promo Video */}
+  <div className="flex justify-center lg:justify-start">
+    <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-[#2A2A2A] bg-black aspect-[9/16]">
+      <video
+        src="/videos/Tryout Promo Summer 2026.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="h-full w-full object-cover"
+      />
+    </div>
+  </div>
 </div>
     </div>
   );

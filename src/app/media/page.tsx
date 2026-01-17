@@ -18,9 +18,9 @@ export default function MediaPage() {
       { id: "c3", src: "/videos/Game Recap (Sunday).mp4", title: "Mississauga U17", tag: "Highlights" },
       { id: "c4", src: "/videos/Game Recap.mp4", title: "U17 Derby", tag: "Game Recap" },
       { id: "c5", src: "/videos/Practice footage 1.mp4", title: "Culture check", tag: "Brotherhood" },
-      { id: "c6", src: "/videos/clip6.mp4", title: "Game winner", tag: "Clutch" },
-      { id: "c7", src: "/videos/clip7.mp4", title: "Footwork + finish", tag: "Skills" },
-      { id: "c8", src: "/videos/clip8.mp4", title: "Fast break", tag: "Speed" },
+      { id: "c6", src: "/videos/Amir Solo Mix.mp4", title: "Amir", tag: "Player Clips" },
+      { id: "c7", src: "/videos/Patrick Mix.mp4", title: "Patrick", tag: "Player Clips" },
+      { id: "c8", src: "/videos/Shaq Mix.mp4", title: "Shaq", tag: "Player Clips" },
       { id: "c9", src: "/videos/Ismael Mix Updated.mp4", title: "Ismael", tag: "Player Clips" },
       { id: "c10", src: "/videos/Noah Mix.mp4", title: "Noah", tag: "Player Clips" },
       { id: "c11", src: "/videos/Kobe Mix.mp4", title: "Kobe", tag: "Player Clips" },
@@ -122,7 +122,8 @@ export default function MediaPage() {
                     <div className="text-xs text-[#BDBDBD]">{open.tag ?? "Clip"}</div>
                     <div className="mt-1 text-2xl font-extrabold">{open.title}</div>
                     <p className="mt-3 text-[#BDBDBD]">
-                      Add a short description here later (game, tournament, training focus, etc.).
+                      Enjoy this clip from Brotherhood Elite. For more videos,
+                      highlights, and media, be sure to follow us on Instagram!
                     </p>
                   </div>
 
