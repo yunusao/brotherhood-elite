@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Brotherhood Elite Web Platform
 
-## Getting Started
+A modern, full-stack web platform built for **Brotherhood Elite**, a youth basketball organization, to enhance its digital presence, branding, and community engagement.
 
-First, run the development server:
+The project was designed and developed end-to-end using modern web technologies, with a strong focus on clean UI/UX, scalability, and production-ready deployment.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🌐 **Live Site:** https://www.brotherhoodelite.ca/
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Modern Frontend Architecture**
+  - Built with **Next.js (App Router)** and **React**
+  - Fully responsive, mobile-first UI using **Tailwind CSS**
 
-## Learn More
+- **Serverless Backend Logic**
+  - API routes implemented using **Next.js Route Handlers**
+  - Handles form submissions and dynamic server-side requests
 
-To learn more about Next.js, take a look at the following resources:
+- **External Content Integration**
+  - Dynamic integration with YouTube and social media content
+  - Automatically surfaces the latest videos and updates
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Performance & UX Optimization**
+  - Optimized routing, rendering, and component structure
+  - Clean navigation and fast load times
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Production Deployment**
+  - Deployed on **Vercel**
+  - Environment configuration and CI/CD via GitHub
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠 Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Frontend**
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+
+**Backend**
+- Next.js API Routes (Serverless Functions)
+
+**Deployment & Tooling**
+- Vercel
+- Git & GitHub
+
+---
+
+## 📚 What I Learned
+
+- Building full-stack applications using the Next.js App Router
+- Designing clean, scalable React component architectures
+- Creating and debugging serverless API routes
+- Deploying and managing production web applications
+- Applying modern UI/UX and performance best practices
+
+---
+
+## 🔮 Future Enhancements
+
+Planned features and improvements include:
+- Admin/content management capabilities
+- Analytics and usage tracking
+- Member registration and authentication
+- Expanded media and content automation
+
+---
+
+## 👤 Author
+
+**Yunus Abu-Oshaibah**  
+- LinkedIn: [https://lnkd.in/eXKrPHSm](https://www.linkedin.com/in/yunus-abu-oshaibah/)  
+- GitHub: https://github.com/yunusao
