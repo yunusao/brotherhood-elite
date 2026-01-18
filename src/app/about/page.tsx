@@ -201,7 +201,7 @@ export default function AboutPage() {
             >
               <div className="flex items-center gap-3">
                 <div className="rounded-xl border border-[#2A2A2A] bg-[#121212] p-3">
-                  <Volleyball className="h-5 w-5 text-[#47A614]" />
+                  <ShieldCheck className="h-5 w-5 text-[#47A614]" />
                 </div>
                 <div className="font-extrabold text-white">Basketball Development</div>
               </div>
