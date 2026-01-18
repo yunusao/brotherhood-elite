@@ -11,7 +11,7 @@ export default function HomePage() {
       <section className="relative block md:hidden h-[85vh] min-h-[520px] overflow-hidden">
         {/* Background Image */}
         <Image
-          src="/heros.jpg"
+          src="/heros-temp.jpg"
           alt="Brotherhood Elite team"
           fill
           priority
@@ -127,7 +127,7 @@ export default function HomePage() {
 
         {/* Hero Image */}
         <Image
-          src="/heros.jpg"
+          src="/heros-temp.jpg"
           alt="Brotherhood Elite team"
           fill
           priority
