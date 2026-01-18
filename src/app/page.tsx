@@ -267,7 +267,7 @@ export default function HomePage() {
                 href: "/programs",
               },
               {
-                title: "Individual & Small GroupTraining",
+                title: "Individual & Small Group Training",
                 desc: "High reps, high intensity, and measurable improvement.",
                 href: "/programs",
               },
