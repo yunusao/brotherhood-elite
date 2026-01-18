@@ -74,7 +74,7 @@ export default function ContactPage() {
             <InfoCard
               icon={<Mail size={18} />}
               title="Email"
-              value="info.brotherhoodelite@gmail.com"
+              value="info@brotherhoodelite.ca"
               note="General inquiries"
             />
             <InfoCard
@@ -179,7 +179,7 @@ export default function ContactPage() {
 
               <div className="mt-6 border-t border-[#2A2A2A] pt-5 text-sm text-[#BDBDBD]">
                 Prefer email? Write us at{" "}
-                <span className="text-white font-semibold">info.brotherhoodelite@gmail.com</span>
+                <span className="text-white font-semibold">info@brotherhoodelite.ca</span>
               </div>
             </div>
           </div>

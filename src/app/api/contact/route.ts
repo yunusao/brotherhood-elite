@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import * as nodemailer from "nodemailer";
 
-export const runtime = "nodejs"; // IMPORTANT (Resend uses node, not edge)
+
+export const runtime = "nodejs";
 
 type ContactPayload = {
   name: string;
@@ -26,15 +27,17 @@ function esc(s: string) {
 
 export async function POST(req: Request) {
   try {
-    const resendKey = process.env.RESEND_API_KEY;
-    const to = process.env.CONTACT_TO_EMAIL;
-    const from = process.env.CONTACT_FROM_EMAIL;
+    const {
+      SMTP_HOST,
+      SMTP_PORT,
+      SMTP_USER,
+      SMTP_PASS,
+      CONTACT_TO_EMAIL,
+      CONTACT_FROM_EMAIL,
+    } = process.env;
 
-    if (!resendKey || !to || !from) {
-      return NextResponse.json(
-        { ok: false, error: "Missing server env vars" },
-        { status: 500 }
-      );
+    if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !CONTACT_TO_EMAIL || !CONTACT_FROM_EMAIL) {
+      return NextResponse.json({ ok: false, error: "Missing server env vars" }, { status: 500 });
     }
 
     const body = (await req.json()) as Partial<ContactPayload>;
@@ -46,21 +49,19 @@ export async function POST(req: Request) {
     const message = (body.message ?? "").trim();
 
     if (!name || !email || !message) {
-      return NextResponse.json(
-        { ok: false, error: "Missing required fields" },
-        { status: 400 }
-      );
+      return NextResponse.json({ ok: false, error: "Missing required fields" }, { status: 400 });
     }
 
-    // basic anti-abuse limits
     if (name.length > 120 || email.length > 160 || topic.length > 80 || message.length > 4000) {
-      return NextResponse.json(
-        { ok: false, error: "Payload too large" },
-        { status: 413 }
-      );
+      return NextResponse.json({ ok: false, error: "Payload too large" }, { status: 413 });
     }
 
-    const resend = new Resend(resendKey);
+    const transporter = nodemailer.createTransport({
+      host: SMTP_HOST,
+      port: Number(SMTP_PORT),
+      secure: true, // port 465
+      auth: { user: SMTP_USER, pass: SMTP_PASS },
+    });
 
     const subject = `[Brotherhood Elite] Contact: ${topic} — ${name}`;
 
@@ -76,27 +77,20 @@ export async function POST(req: Request) {
       </div>
     `;
 
-    const { error } = await resend.emails.send({
-      from,
-      to,
+    await transporter.sendMail({
+      from: CONTACT_FROM_EMAIL,
+      to: CONTACT_TO_EMAIL,
       subject,
       html,
-      replyTo: email, // so you can hit "Reply" directly to the person
+      replyTo: email,
     });
-
-    if (error) {
-      return NextResponse.json({ ok: false, error: error.message }, { status: 502 });
-    }
 
     return NextResponse.json({ ok: true });
   } catch (err: any) {
-    return NextResponse.json(
-      { ok: false, error: err?.message ?? "Server error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ ok: false, error: err?.message ?? "Server error" }, { status: 500 });
   }
 }
 
 export async function GET() {
-  return Response.json({ ok: true });
+  return NextResponse.json({ ok: true });
 }
