@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { X, Play } from "lucide-react";
+import { VIDEOS } from "@/lib/videos";
 
 type Clip = {
   id: string;
@@ -13,18 +14,18 @@ type Clip = {
 export default function MediaPage() {
   const clips: Clip[] = useMemo(
     () => [
-      { id: "c1", src: "/videos/Game Recap BHE.mp4", title: "Ottawa U17", tag: "Highlights" },
-      { id: "c2", src: "/videos/Reel 2 (BHE).mp4", title: "Mississauga U19", tag: "Highlights" },
-      { id: "c3", src: "/videos/Game Recap (Sunday).mp4", title: "Mississauga U17", tag: "Highlights" },
-      { id: "c4", src: "/videos/Game Recap.mp4", title: "U17 Derby", tag: "Game Recap" },
-      { id: "c5", src: "/videos/Practice footage 1.mp4", title: "Culture check", tag: "Brotherhood" },
-      { id: "c6", src: "/videos/Amir Solo Mix.mp4", title: "Amir", tag: "Player Clips" },
-      { id: "c7", src: "/videos/Patrick Mix.mp4", title: "Patrick", tag: "Player Clips" },
-      { id: "c8", src: "/videos/Shaq Mix.mp4", title: "Shaq", tag: "Player Clips" },
-      { id: "c9", src: "/videos/Ismael Mix Updated.mp4", title: "Ismael", tag: "Player Clips" },
-      { id: "c10", src: "/videos/Noah Mix.mp4", title: "Noah", tag: "Player Clips" },
-      { id: "c11", src: "/videos/Kobe Mix.mp4", title: "Kobe", tag: "Player Clips" },
-      { id: "c12", src: "/videos/Khaleel Mix.mp4", title: "Khaleel Thompson", tag: "Player Clips" },
+      { id: "c1", src: VIDEOS.gameRecapBHE, title: "Ottawa U17", tag: "Highlights" },
+      { id: "c2", src: VIDEOS.reel2, title: "Mississauga U19", tag: "Highlights" },
+      { id: "c3", src: VIDEOS.gameRecapSunday, title: "Mississauga U17", tag: "Highlights" },
+      { id: "c4", src: VIDEOS.gameRecap, title: "U17 Derby", tag: "Game Recap" },
+      { id: "c5", src: VIDEOS.practiceFootage1, title: "Culture check", tag: "Brotherhood" },
+      { id: "c6", src: VIDEOS.amirSolo, title: "Amir", tag: "Player Clips" },
+      { id: "c7", src: VIDEOS.patrickMix, title: "Patrick", tag: "Player Clips" },
+      { id: "c8", src: VIDEOS.shaqMix, title: "Shaq", tag: "Player Clips" },
+      { id: "c9", src: VIDEOS.ismaelMix, title: "Ismael", tag: "Player Clips" },
+      { id: "c10", src: VIDEOS.noahMix, title: "Noah", tag: "Player Clips" },
+      { id: "c11", src: VIDEOS.kobeMix, title: "Kobe", tag: "Player Clips" },
+      { id: "c12", src: VIDEOS.khaleelMix, title: "Khaleel Thompson", tag: "Player Clips" },
     ],
     []
   );

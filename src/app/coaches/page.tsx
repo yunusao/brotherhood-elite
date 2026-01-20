@@ -19,7 +19,7 @@ const coaches: Coach[] = [
     teams: ["Program Coordinator", "U16(Mississauga)", "U19(Mississauga)"],
     bio: [
       "Musa Ahluwalia brings over a decade of experience in playing and coaching basketball at multiple levels. His basketball journey began at age 8 and led to prep school scholarships and university interest across the US and Canada.",
-      "At 18, Musa made the decision to step away from playing to focus on creating opportunities for youth. He founded Brotherhood Elite with the vision of providing elite training, mentorship, and pathways to higher levels of basketball.",
+      "At 19, Musa made the decision to step away from playing to focus on creating opportunities for youth. He founded Brotherhood Elite with the vision of providing elite training, mentorship, and pathways to higher levels of basketball.",
       "Having trained under high-level coaches and trainers—including Jacques Lukusa, formerly ranked the #2 guard in Canada—Musa gained first-hand experience in elite player development. Since 2019, he has coached hundreds of athletes across Ontario, many of whom have advanced to top US prep schools such as St. Benedict’s Prep (NJ), Wilson Academy (GA), and St. Louis Christian Academy (MO).",
     ],
     image: "/musaa.jpeg",
@@ -40,7 +40,7 @@ const coaches: Coach[] = [
   title: "Head Coach • Scarborough",
   teams: ["U14(Scarborough)", "U16(Scarborough)"],
   bio: [
-    "Alham Khatol, one of our lead assistant coaches in the GTA, brings an extensive coaching experience to our club. With a background in high-level competition during his high school career and over 5 years of training and coaching youth basketball players through Sunnah Spot and other community programs, Alham is dedicated to nurturing talent and fostering a love for the game.",
+    "Alham Khatol, one of our lead assistant coaches in the GTA, brings an extensive coaching experience to our club. With a background in high-level competition during his high school career and over 5 years of training and coaching youth basketball players through Brotherhood Elite and other community programs, Alham is dedicated to nurturing talent and fostering a love for the game.",
     "His passion and love for the game allow him to continue to enjoy playing at a high level today, which also translates to his coaching. His expertise and passion for basketball make him an invaluable asset to our coaching staff, ensuring that players receive top-tier guidance and support as they strive for excellence on the court.",
   ],
   image: "/Alham.jpg",

@@ -1,5 +1,7 @@
 "use client";
 
+import { VIDEOS } from "@/lib/videos";
+
 export default function TryoutsPage() {
   return (
     <div className="container-page py-12 md:py-16">
@@ -39,7 +41,7 @@ export default function TryoutsPage() {
   <div className="flex justify-center lg:justify-start">
     <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-[#2A2A2A] bg-black aspect-[9/16]">
       <video
-        src="/videos/Tryout Promo Summer 2026.mp4"
+        src={VIDEOS.tryoutPromo2026}
         autoPlay
         muted
         loop
