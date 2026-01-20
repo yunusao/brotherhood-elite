@@ -54,7 +54,7 @@ export function Navbar() {
           />
           <div className="leading-tight">
             <div className="font-extrabold tracking-wide">BROTHERHOOD ELITE</div>
-            <div className="text-xs text-[#BDBDBD]">GTA • Ottawa</div>
+            <div className="text-xs text-[#BDBDBD]">Scarborough • Mississauga • Ottawa</div>
           </div>
         </Link>
 
@@ -183,7 +183,7 @@ export function Navbar() {
                   </Link>
 
                   <div className="pt-2 text-center text-xs text-[#BDBDBD]">
-                    GTA • Ottawa • Competitive Basketball
+                    Scarborough • Mississauga • Ottawa • Competitive Basketball
                   </div>
                 </div>
               </div>

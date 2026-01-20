@@ -48,7 +48,7 @@ export default function AboutPage() {
 
           <motion.div variants={reveal}>
             <div className="inline-flex items-center gap-2 rounded-full border border-[#2A2A2A] bg-[#0B0B0B] px-4 py-2 text-xs text-[#BDBDBD]">
-              About Brotherhood Elite • GTA & Ottawa
+              About Brotherhood Elite • Scarborough, Mississauga, & Ottawa
             </div>
 
             <h1 className="mt-4 text-3xl md:text-5xl font-extrabold tracking-tight">

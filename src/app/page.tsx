@@ -54,7 +54,7 @@ export default function HomePage() {
               transition={{ duration: 0.55, delay: 0.2, ease: "easeOut" }}
               className="mx-auto mt-4 max-w-sm text-[#E0E0E0]"
             >
-              Competitive basketball development in the GTA and Ottawa — elite
+              Competitive basketball development in Scarborough, Mississauga and Ottawa — elite
               training, teams, and a culture of accountability.
             </motion.p>
 
@@ -158,7 +158,7 @@ export default function HomePage() {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-4 py-2 text-xs text-[#BDBDBD] backdrop-blur">
-                Competitive Program • GTA & Ottawa
+                Competitive Program • Scarborough • Mississauga • Ottawa
               </div>
 
               <h1 className="mt-4 text-5xl md:text-6xl font-extrabold tracking-tight">
@@ -235,10 +235,10 @@ export default function HomePage() {
             transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
           >
             <span className="mr-10">
-              GTA • Ottawa • Competitive Teams • Elite Training • Camps • Brotherhood • Accountability • Development •
+              Scarborough • Mississauga • Ottawa • Competitive Teams • Elite Training • Camps • Brotherhood • Accountability • Development •
             </span>
             <span className="mr-10">
-              GTA • Ottawa • Competitive Teams • Elite Training • Camps • Brotherhood • Accountability • Development •
+              Scarborough • Mississauga • Ottawa • Competitive Teams • Elite Training • Camps • Brotherhood • Accountability • Development •
             </span>
           </motion.div>
         </div>

@@ -80,7 +80,7 @@ export default function ContactPage() {
             <InfoCard
               icon={<MapPin size={18} />}
               title="Locations"
-              value="GTA • Ottawa"
+              value="Scarborough • Mississauga • Ottawa"
               note="Gyms announced per season"
             />
 
