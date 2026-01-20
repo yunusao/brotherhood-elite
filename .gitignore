@@ -22,3 +22,5 @@ pnpm-debug.log*
 .DS_Store
 .vscode
 
+public/hero.mp4
+public/videos/
