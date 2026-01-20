@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Brotherhood Elite | Competitive Basketball (GTA & Ottawa)",
   description:
     "Brotherhood Elite is a competitive basketball program based in the GTA and Ottawa. Elite development, discipline, and brotherhood.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
