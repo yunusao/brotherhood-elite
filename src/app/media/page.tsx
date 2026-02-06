@@ -6,7 +6,8 @@ import { VIDEOS } from "@/lib/videos";
 
 type Clip = {
   id: string;
-  src: string;      // /videos/...
+  src: string;
+  poster: string;      // /videos/...
   title: string;
   tag?: string;
 };
@@ -14,18 +15,18 @@ type Clip = {
 export default function MediaPage() {
   const clips: Clip[] = useMemo(
     () => [
-      { id: "c1", src: VIDEOS.gameRecapBHE, title: "Ottawa U17", tag: "Highlights" },
-      { id: "c2", src: VIDEOS.reel2, title: "Mississauga U19", tag: "Highlights" },
-      { id: "c3", src: VIDEOS.gameRecapSunday, title: "Mississauga U17", tag: "Highlights" },
-      { id: "c4", src: VIDEOS.gameRecap, title: "U17 Derby", tag: "Game Recap" },
-      { id: "c5", src: VIDEOS.practiceFootage1, title: "Culture check", tag: "Brotherhood" },
-      { id: "c6", src: VIDEOS.amirSolo, title: "Amir", tag: "Player Clips" },
-      { id: "c7", src: VIDEOS.patrickMix, title: "Patrick", tag: "Player Clips" },
-      { id: "c8", src: VIDEOS.shaqMix, title: "Shaq", tag: "Player Clips" },
-      { id: "c9", src: VIDEOS.ismaelMix, title: "Ismael", tag: "Player Clips" },
-      { id: "c10", src: VIDEOS.noahMix, title: "Noah", tag: "Player Clips" },
-      { id: "c11", src: VIDEOS.kobeMix, title: "Kobe", tag: "Player Clips" },
-      { id: "c12", src: VIDEOS.khaleelMix, title: "Khaleel Thompson", tag: "Player Clips" },
+      { id: "c1", src: VIDEOS.gameRecapBHE, poster: "/thumbs/Game Recap BHE.png", title: "Ottawa U17", tag: "Highlights" },
+      { id: "c2", src: VIDEOS.reel2, poster: "/thumbs/Reel 2 (BHE).png", title: "Mississauga U19", tag: "Highlights" },
+      { id: "c3", src: VIDEOS.gameRecapSunday, poster: "/thumbs/Game Recap (Sunday).png", title: "Mississauga U17", tag: "Highlights" },
+      { id: "c4", src: VIDEOS.gameRecap, poster: "/thumbs/Game Recap.png", title: "U17 Derby", tag: "Game Recap" },
+      { id: "c5", src: VIDEOS.practiceFootage1, poster: "/thumbs/Practice footage.png", title: "Culture check", tag: "Brotherhood" },
+      { id: "c6", src: VIDEOS.amirSolo, poster: "/thumbs/Amir.png", title: "Amir", tag: "Player Clips" },
+      { id: "c7", src: VIDEOS.patrickMix, poster: "/thumbs/Patrick.png", title: "Patrick", tag: "Player Clips" },
+      { id: "c8", src: VIDEOS.shaqMix, poster: "/thumbs/Shaq.png", title: "Shaq", tag: "Player Clips" },
+      { id: "c9", src: VIDEOS.ismaelMix, poster: "/thumbs/Ismael.png", title: "Ismael", tag: "Player Clips" },
+      { id: "c10", src: VIDEOS.noahMix, poster: "/thumbs/Noah.png", title: "Noah", tag: "Player Clips" },
+      { id: "c11", src: VIDEOS.kobeMix, poster: "/thumbs/Kobe.png", title: "Kobe", tag: "Player Clips" },
+      { id: "c12", src: VIDEOS.khaleelMix, poster: "/thumbs/Khaleel.png", title: "Khaleel Thompson", tag: "Player Clips" },
     ],
     []
   );
@@ -61,12 +62,11 @@ export default function MediaPage() {
           >
             {/* Video preview (muted, no autoplay to keep grid light) */}
             <div className="relative aspect-[9/16] bg-black">
-              <video
+              <img
+                src={clip.poster}
+                alt={clip.title}
                 className="h-full w-full object-cover"
-                src={clip.src}
-                muted
-                playsInline
-                preload="metadata"
+                loading="lazy"
               />
 
               {/* Dark overlay on hover */}
@@ -108,6 +108,7 @@ export default function MediaPage() {
               {/* Video */}
               <div className="relative overflow-hidden rounded-2xl border border-[#2A2A2A] bg-black">
                 <video
+                key = {open.src}
                   className="h-full w-full object-cover"
                   src={open.src}
                   controls
