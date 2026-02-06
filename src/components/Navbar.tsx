@@ -46,7 +46,7 @@ export function Navbar() {
       <div className="container-page flex items-center justify-between py-3">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/logo.jpg"
+            src="/logono.jpg"
             alt="Brotherhood Elite"
             width={40}
             height={40}

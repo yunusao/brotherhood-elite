@@ -264,7 +264,7 @@ export default function HomePage() {
               {
                 title: "B.E. Academy",
                 desc: "Shooting, handles, footwork, defense, and basketball IQ.",
-                href: "/programs",
+                href: "/academy",
               },
               {
                 title: "Individual & Small Group Training",
