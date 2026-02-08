@@ -14,7 +14,7 @@ type Program = {
   subtitle: string;
   // Tryouts uses jotformUrl; Academy uses jotformByCity
   jotformUrl?: string;
-  jotformByCity?: Record<City, string>;
+  jotformByCity?: Partial<Record<City, string>>;
   promoVideo?: string;
 };
 
@@ -35,9 +35,9 @@ export default function RegistrationPage() {
         title: "BE Academy Registration",
         subtitle: "For players with previous experience (at least house league or Single-A level) ready to develop their skills, basketball IQ, and team play.",
         jotformByCity: {
-          Mississauga: null,
-          Scarborough: null,
-          Ottawa: null,
+          Mississauga: undefined,
+          Scarborough: undefined,
+          Ottawa: undefined,
         },
         // promoVideo: VIDEOS.tryoutPromo2026, // optional if you want a video here too
       },
