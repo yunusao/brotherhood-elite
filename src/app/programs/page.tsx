@@ -80,6 +80,149 @@ export default function ProgramsPage() {
   const academyProgram = programs.find((p) => p.title === "Brotherhood Elite Academy");
   const otherPrograms = programs.filter((p) => p.title !== "Brotherhood Elite Academy");
 
+  const firstProgram = otherPrograms[0];
+  const restPrograms = otherPrograms.slice(1);
+
+  // Reusable render for non-academy cards (left stack)
+  const renderStandardProgramCard = (p: (typeof programs)[number]) => (
+    <motion.section
+      key={p.title}
+      variants={fadeUp}
+      className="rounded-2xl border border-[#2A2A2A] bg-[#121212] p-6 md:p-8"
+    >
+      <div className="flex items-start justify-between gap-4">
+        <h2 className="text-xl md:text-2xl font-extrabold">{p.title}</h2>
+        <span className="shrink-0 rounded-full border border-[#2A2A2A] bg-[#0B0B0B] px-3 py-1 text-xs text-[#BDBDBD]">
+          Program
+        </span>
+      </div>
+
+      <p className="mt-3 text-[#BDBDBD] leading-relaxed">{p.desc}</p>
+
+      <ul className="mt-5 space-y-2 text-sm text-[#BDBDBD]">
+        {p.bullets.map((b) => (
+          <li key={b} className="flex items-start gap-3">
+            <span className="mt-1 h-2 w-2 rounded-full bg-[#47A614]" />
+            <span>{b}</span>
+          </li>
+        ))}
+      </ul>
+
+      {p.title === "Competitive Rep/AAU Teams" ? (
+        <p className="mt-4 text-sm text-[#BDBDBD]">
+          These teams are about development through competition, not shortcuts—preparing players to
+          perform the right way when it matters.
+        </p>
+      ) : null}
+
+      <div className="mt-6 border-t border-[#2A2A2A] pt-4">
+        <Link
+          href={p.href}
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[#47A614] hover:text-[#63C51F] transition"
+        >
+          {"Learn more / Get involved"} <span aria-hidden>→</span>
+        </Link>
+      </div>
+    </motion.section>
+  );
+
+  // Reusable Academy card content
+  const renderAcademyCard = (compact = false) => (
+    <motion.section
+      variants={fadeUp}
+      className={[
+        "rounded-2xl border border-[#2A2A2A] bg-[#121212]",
+        compact ? "p-6" : "p-6 md:p-8",
+      ].join(" ")}
+    >
+      {/* Header */}
+      <div className="flex items-start justify-between gap-4">
+        <h2 className={compact ? "text-xl font-extrabold" : "text-xl md:text-2xl font-extrabold"}>
+          Brotherhood Elite Academy
+        </h2>
+        <span className="shrink-0 rounded-full border border-[#2A2A2A] bg-[#0B0B0B] px-3 py-1 text-xs text-[#BDBDBD]">
+          Program
+        </span>
+      </div>
+
+      <p className="mt-3 text-[#BDBDBD] leading-relaxed">
+        Structured two-track development for players who have foundational skills and previous
+        experience.
+      </p>
+
+      {/* Program 95 */}
+      <div className="mt-5 rounded-2xl border border-[#2A2A2A] bg-[#0B0B0B] p-4">
+        <div className="flex items-center justify-between gap-3">
+          <h3 className="text-base font-extrabold text-white">Program 95</h3>
+          <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-[11px] text-[#BDBDBD]">
+            Track
+          </span>
+        </div>
+
+        <ul className="mt-3 space-y-2 text-sm text-[#BDBDBD]">
+          {[
+            "Focuses on the 95% of basketball played without the ball",
+            "Movement, defense, communication, spacing, and team play",
+            "Develops smart, disciplined, team-first players",
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-3">
+              <span className="mt-1 h-2 w-2 rounded-full bg-[#47A614]" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-3 text-xs text-[#BDBDBD] italic">
+          — For players with prior experience and fundamentals
+        </div>
+      </div>
+
+      {/* Program 5 */}
+      <div className="mt-4 rounded-2xl border border-[#2A2A2A] bg-[#0B0B0B] p-4">
+        <div className="flex items-center justify-between gap-3">
+          <h3 className="text-base font-extrabold text-white">Program 5</h3>
+          <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-[11px] text-[#BDBDBD]">
+            Track
+          </span>
+        </div>
+
+        <ul className="mt-3 space-y-2 text-sm text-[#BDBDBD]">
+          {[
+            "Focuses on the 5% of the game played with the ball",
+            "Ball-handling, finishing, shooting, and decision-making",
+            "Builds confidence, skill, and creativity within the flow of the team",
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-3">
+              <span className="mt-1 h-2 w-2 rounded-full bg-[#47A614]" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-3 text-xs text-[#BDBDBD] italic">
+          — Requires players to already have foundational skills and on-court experience
+        </div>
+      </div>
+
+      {/* Why both */}
+      <div className="mt-6 border-t border-[#2A2A2A] pt-4 text-sm text-[#BDBDBD]">
+        <span className="text-white font-semibold">Why we teach both:</span>{" "}
+        Great players impact the game with and without the ball—combining skill, intelligence, and
+        team-first basketball.
+      </div>
+
+      {/* Link */}
+      <div className="mt-4">
+        <Link
+          href="/academy"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[#47A614] hover:text-[#63C51F] transition"
+        >
+          {"Explore Program 95 & Program 5"} <span aria-hidden>→</span>
+        </Link>
+      </div>
+    </motion.section>
+  );
+
   return (
     <div className="relative overflow-hidden">
       {/* subtle brand glow */}
@@ -123,144 +266,22 @@ export default function ProgramsPage() {
         >
           {/* LEFT COLUMN – stacked programs */}
           <motion.div variants={stagger} className="flex flex-col gap-5">
-            {otherPrograms.map((p) => (
-              <motion.section
-                key={p.title}
-                variants={fadeUp}
-                className="rounded-2xl border border-[#2A2A2A] bg-[#121212] p-6 md:p-8"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <h2 className="text-xl md:text-2xl font-extrabold">{p.title}</h2>
-                  <span className="shrink-0 rounded-full border border-[#2A2A2A] bg-[#0B0B0B] px-3 py-1 text-xs text-[#BDBDBD]">
-                    Program
-                  </span>
-                </div>
+            {/* First card */}
+            {firstProgram ? renderStandardProgramCard(firstProgram) : null}
 
-                <p className="mt-3 text-[#BDBDBD] leading-relaxed">{p.desc}</p>
+            {/* Academy inserted SECOND on MOBILE only */}
+            {academyProgram ? (
+              <div className="md:hidden">{renderAcademyCard(true)}</div>
+            ) : null}
 
-                <ul className="mt-5 space-y-2 text-sm text-[#BDBDBD]">
-                  {p.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-3">
-                      <span className="mt-1 h-2 w-2 rounded-full bg-[#47A614]" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-                {p.title === "Competitive Rep/AAU Teams" ? (
-                  <p className="mt-4 text-sm text-[#BDBDBD]">
-                    These teams are about development through competition, not shortcuts—preparing players to perform the right way when it matters.
-                  </p>
-                ) : null}
-
-                <div className="mt-6 border-t border-[#2A2A2A] pt-4">
-                  <Link
-                    href={p.href}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#47A614] hover:text-[#63C51F] transition"
-                  >
-                    Learn more / Get involved <span aria-hidden>→</span>
-                  </Link>
-                </div>
-              </motion.section>
-            ))}
+            {/* Rest of cards */}
+            {restPrograms.map((p) => renderStandardProgramCard(p))}
           </motion.div>
 
-          {/* RIGHT COLUMN – academy */}
-          {academyProgram && (
-          <motion.section
-            variants={fadeUp}
-            className="rounded-2xl border border-[#2A2A2A] bg-[#121212] p-6 md:p-8"
-          >
-            {/* Header */}
-            <div className="flex items-start justify-between gap-4">
-              <h2 className="text-xl md:text-2xl font-extrabold">
-                Brotherhood Elite Academy
-              </h2>
-              <span className="shrink-0 rounded-full border border-[#2A2A2A] bg-[#0B0B0B] px-3 py-1 text-xs text-[#BDBDBD]">
-                Program
-              </span>
-            </div>
-
-            <p className="mt-3 text-[#BDBDBD] leading-relaxed">
-              Advanced two-track development for players who already have foundational
-              skills and game experience.
-            </p>
-
-            {/* Program 95 */}
-            <div className="mt-5 rounded-2xl border border-[#2A2A2A] bg-[#0B0B0B] p-4">
-              <div className="flex items-center justify-between gap-3">
-                <h3 className="text-base font-extrabold text-white">
-                  Program 95 
-                </h3>
-                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-[11px] text-[#BDBDBD]">
-                  Track
-                </span>
-              </div>
-
-              <ul className="mt-3 space-y-2 text-sm text-[#BDBDBD]">
-                {[
-                  "Focuses on the 95% of basketball played without the ball",
-                  "Movement, defense, communication, spacing, and team play",
-                  "Develops smart, disciplined, team-first players",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-[#47A614]" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-3 text-xs text-[#BDBDBD] italic">
-                — For players with prior experience and fundamentals
-              </div>
-            </div>
-
-            {/* Program 5 */}
-            <div className="mt-4 rounded-2xl border border-[#2A2A2A] bg-[#0B0B0B] p-4">
-              <div className="flex items-center justify-between gap-3">
-                <h3 className="text-base font-extrabold text-white">
-                  Program 5 
-                </h3>
-                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-[11px] text-[#BDBDBD]">
-                  Track
-                </span>
-              </div>
-
-              <ul className="mt-3 space-y-2 text-sm text-[#BDBDBD]">
-                {[
-                  "Focuses on the 5% of the game played with the ball",
-                  "Ball-handling, finishing, shooting, and decision-making",
-                  "Builds confidence, skill, and creativity within the flow of the team",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-[#47A614]" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-3 text-xs text-[#BDBDBD] italic">
-                — Requires players to already have foundational skills and on-court experience
-              </div>
-            </div>
-
-            {/* Why both */}
-            <div className="mt-6 border-t border-[#2A2A2A] pt-4 text-sm text-[#BDBDBD]">
-              <span className="text-white font-semibold">Why we teach both:</span>{" "}
-              Great players impact the game with and without the ball—combining skill,
-              intelligence, and team-first basketball.
-            </div>
-
-            {/* Link */}
-            <div className="mt-4">
-              <Link
-                href="/academy"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[#47A614] hover:text-[#63C51F] transition"
-              >
-                Explore Program 95 & Program 5 <span aria-hidden>→</span>
-              </Link>
-            </div>
-          </motion.section>
-        )}
+          {/* RIGHT COLUMN – academy (DESKTOP ONLY) */}
+          {academyProgram ? (
+            <div className="hidden md:block">{renderAcademyCard(false)}</div>
+          ) : null}
         </motion.div>
 
         {/* Bottom CTA */}
@@ -283,7 +304,7 @@ export default function ProgramsPage() {
               href="/tryouts"
               className="inline-flex items-center justify-center rounded-xl border border-[#47A614] bg-[#47A614] px-5 py-3 text-sm font-semibold text-black transition hover:bg-[#63C51F] hover:border-[#63C51F]"
             >
-              Tryouts / Register
+              {"Tryouts / Register"}
             </Link>
             <Link
               href="/contact"
