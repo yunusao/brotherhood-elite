@@ -33,7 +33,7 @@ const coaches: Coach[] = [
     "A former 3-time All-Star and All-Canadian, Louis competed at the collegiate and professional levels before returning home to dedicate himself to youth development. His coaching journey began with family and expanded to mentoring athletes who have gone on to compete at NCAA Division I, Carleton University, and beyond.",
     "Known for his passion, basketball knowledge, and commitment to player growth, Louis continues to impact the next generation both on and off the court.",
   ],
-  image: "/louis.jpg",
+  image: "/louis.jpeg",
 },
 {
   name: "Alham Khatol",
@@ -44,6 +44,17 @@ const coaches: Coach[] = [
     "His passion and love for the game allow him to continue to enjoy playing at a high level today, which also translates to his coaching. His expertise and passion for basketball make him an invaluable asset to our coaching staff, ensuring that players receive top-tier guidance and support as they strive for excellence on the court.",
   ],
   image: "/Alham.jpg",
+},
+{
+  name: "Ahmad Darwiche",
+  title: "Head Coach • Ottawa",
+  teams: ["U17(Ottawa)"],
+  bio: [
+    "Coach Darwiche brings a deep passion for player development and the game of basketball. A lifelong competitor, he played high-level AAU basketball and was an accomplished high school all-star, earning college opportunities before choosing a different professional path.",
+    "With over six years of coaching experience, Coach Darwiche has worked extensively in youth basketball and has mentored prospects who have gone on to play Division I basketball and U Sports (CIS). Well known in the Ottawa basketball community, he is recognized for teaching the game the right way — emphasizing high basketball IQ, strong fundamentals, and disciplined decision-making.",
+    "Having worked with youth for over a decade, Coach Darwiche excels at connecting with players, nurturing talent, and helping athletes grow both on and off the court.",
+  ],
+  image: "/logo.jpg",
 },
 ];
 

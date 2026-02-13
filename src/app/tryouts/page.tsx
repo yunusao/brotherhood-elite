@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { CheckCircle2, MapPin } from "lucide-react";
 import { VIDEOS } from "@/lib/videos";
 import Link from "next/link";
@@ -33,9 +33,10 @@ export default function RegistrationPage() {
         key: "academy",
         badge: "BE Academy • Registration",
         title: "BE Academy Registration",
-        subtitle: "For players with previous experience (at least house league or Single-A level) ready to develop their skills, basketball IQ, and team play.",
+        subtitle:
+          "For players with previous experience (at least house league or Single-A level) ready to develop their skills, basketball IQ, and team play.",
         jotformByCity: {
-          Mississauga: undefined,
+          Mississauga: "https://form.jotform.com/260425984562262",
           Scarborough: undefined,
           Ottawa: undefined,
         },
@@ -48,12 +49,17 @@ export default function RegistrationPage() {
   const [selected, setSelected] = useState<Program>(programs[0]);
   const [city, setCity] = useState<City | null>(null);
 
+  // ✅ NEW: prevents auto-scroll on initial page load
+  const [hasInteracted, setHasInteracted] = useState(false);
+
   const cityRef = useRef<HTMLDivElement | null>(null);
   const formRef = useRef<HTMLDivElement | null>(null);
 
   const isAcademy = selected.key === "academy";
   const activeFormUrl = isAcademy
-    ? (city ? selected.jotformByCity?.[city] : undefined)
+    ? city
+      ? selected.jotformByCity?.[city]
+      : undefined
     : selected.jotformUrl;
 
   const scrollTo = (ref: React.RefObject<HTMLDivElement | null>) => {
@@ -69,6 +75,16 @@ export default function RegistrationPage() {
     }, 100);
   };
 
+  // ✅ Scroll only AFTER the user picks a program (fixes auto-scroll on page entry)
+  useEffect(() => {
+    if (!hasInteracted) return;
+
+    if (typeof window === "undefined") return;
+    if (window.innerWidth >= 1024) return;
+
+    if (selected.key === "academy") scrollTo(cityRef);
+    if (selected.key === "tryouts") scrollTo(formRef);
+  }, [selected.key, hasInteracted]);
 
   return (
     <div className="container-page py-12 md:py-16">
@@ -96,15 +112,11 @@ export default function RegistrationPage() {
             <button
               key={p.key}
               onClick={() => {
+                setHasInteracted(true); // ✅ NEW
                 setSelected(p);
                 // Reset city when switching programs
                 setCity(null);
-
-                // On mobile:
-                // - If tryouts: scroll straight to form
-                // - If academy: scroll to city picker
-                if (p.key === "tryouts") scrollTo(formRef);
-                if (p.key === "academy") scrollTo(cityRef);
+                // (Scroll handled in useEffect after render)
               }}
               className={[
                 "group rounded-2xl border bg-[#121212] p-5 text-left transition",
@@ -123,7 +135,9 @@ export default function RegistrationPage() {
                 <div
                   className={[
                     "mt-1 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs",
-                    active ? "bg-[#47A614] text-black" : "border border-white/10 bg-black/30 text-white/80",
+                    active
+                      ? "bg-[#47A614] text-black"
+                      : "border border-white/10 bg-black/30 text-white/80",
                   ].join(" ")}
                 >
                   <CheckCircle2 size={14} />
@@ -134,6 +148,7 @@ export default function RegistrationPage() {
           );
         })}
       </div>
+
       {/* Beginner / unsure CTA */}
       <div className="mb-10 rounded-2xl border border-[#2A2A2A] bg-[#121212] p-5 md:p-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
@@ -154,7 +169,6 @@ export default function RegistrationPage() {
         </Link>
       </div>
 
-
       {/* Selected program */}
       <div className="mb-4 max-w-3xl">
         <div className="text-xs text-[#BDBDBD]">{selected.badge}</div>
@@ -164,7 +178,10 @@ export default function RegistrationPage() {
 
       {/* City picker (Academy only) */}
       {isAcademy && (
-        <div ref={cityRef} className="mb-6 rounded-2xl border border-[#2A2A2A] bg-[#121212] p-4 md:p-6 scroll-mt-24">
+        <div
+          ref={cityRef}
+          className="mb-6 rounded-2xl border border-[#2A2A2A] bg-[#121212] p-4 md:p-6 scroll-mt-24"
+        >
           <div className="flex items-center gap-2 text-sm font-semibold text-white">
             <MapPin size={16} />
             Select your city
@@ -210,45 +227,41 @@ export default function RegistrationPage() {
         <div className="rounded-2xl border border-[#2A2A2A] bg-[#121212] p-2 md:p-4">
           <div className="relative w-full overflow-hidden rounded-xl">
             {!activeFormUrl ? (
-  <div className="flex min-h-[420px] flex-col items-start justify-center gap-3 p-6 text-left">
-    <div className="text-lg font-extrabold text-white">
-      {isAcademy && city ? "Coming Soon" : "Almost there"}
-        </div>
+              <div className="flex min-h-[420px] flex-col items-start justify-center gap-3 p-6 text-left">
+                <div className="text-lg font-extrabold text-white">
+                  {isAcademy && city ? "Coming Soon" : "Almost there"}
+                </div>
 
-          <div className="text-sm text-[#BDBDBD] max-w-md">
-            {isAcademy && !city && (
-              <>Please select a city above to continue.</>
+                <div className="text-sm text-[#BDBDBD] max-w-md">
+                  {isAcademy && !city && <>Please select a city above to continue.</>}
+
+                  {isAcademy && city && (
+                    <>
+                      Registration for{" "}
+                      <span className="text-white font-semibold">{city}</span>{" "}
+                      is coming soon. Please check back shortly or contact us for updates.
+                    </>
+                  )}
+
+                  {!isAcademy && <>Select a program to load the registration form.</>}
+                </div>
+
+                {isAcademy && city && (
+                  <div className="mt-2 text-xs text-[#BDBDBD] italic">
+                    We’re finalizing schedules and availability for this location.
+                  </div>
+                )}
+              </div>
+            ) : (
+              <iframe
+                key={activeFormUrl}
+                src={activeFormUrl}
+                title={`${selected.title}${city ? ` (${city})` : ""} Form`}
+                className="w-full h-[900px] border-0"
+                loading="lazy"
+                allow="geolocation; microphone; camera"
+              />
             )}
-
-            {isAcademy && city && (
-              <>
-                Registration for <span className="text-white font-semibold">{city}</span>{" "}
-                is coming soon. Please check back shortly or contact us for updates.
-              </>
-            )}
-
-            {!isAcademy && (
-              <>Select a program to load the registration form.</>
-            )}
-          </div>
-
-          {isAcademy && city && (
-            <div className="mt-2 text-xs text-[#BDBDBD] italic">
-              We’re finalizing schedules and availability for this location.
-            </div>
-          )}
-        </div>
-    ) : (
-      <iframe
-        key={activeFormUrl}
-        src={activeFormUrl}
-        title={`${selected.title}${city ? ` (${city})` : ""} Form`}
-        className="w-full h-[900px] border-0"
-        loading="lazy"
-        allow="geolocation; microphone; camera"
-      />
-    )}
-
           </div>
         </div>
 
@@ -269,9 +282,7 @@ export default function RegistrationPage() {
               <div className="flex h-full w-full items-center justify-center p-6 text-center">
                 <div>
                   <div className="text-white font-extrabold">BE Academy</div>
-                  <div className="mt-2 text-sm text-[#BDBDBD]">
-                    Promo video coming soon.
-                  </div>
+                  <div className="mt-2 text-sm text-[#BDBDBD]">Promo video coming soon.</div>
                 </div>
               </div>
             )}
